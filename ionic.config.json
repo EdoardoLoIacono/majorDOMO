@@ -1,0 +1,7 @@
+{
+  "name": "mDOMO",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
