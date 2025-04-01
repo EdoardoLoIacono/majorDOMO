@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  { 
+    path: 'dispositivi',
+    loadChildren: () => import('./dispositivi/dispositivi.module').then(m =>m.DispositiviPageModule) 
+  },
 ];
 
 @NgModule({

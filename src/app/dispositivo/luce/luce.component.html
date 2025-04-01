@@ -1,0 +1,7 @@
+<div id="wrap">
+  <ion-item color="dark">
+    <ion-icon [name]="favourite ? 'star' : 'star-outline'" slot="start" color="warning" (click)="preferito()"></ion-icon>
+    <ion-lable>{{nome}}</ion-lable>
+    <ion-toggle aria-label="Warning toggle" color="warning" [ngModel]="stato" slot="end"></ion-toggle>
+  </ion-item>
+</div>

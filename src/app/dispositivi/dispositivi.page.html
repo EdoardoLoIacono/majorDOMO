@@ -1,0 +1,38 @@
+<ion-content [fullscreen]="false">
+    <div id="head">
+      <ion-toolbar color="trasparent">
+        <ion-buttons slot="start">
+          <span>&lt;</span>
+        </ion-buttons>
+        <ion-title color="light">Dispositivi</ion-title>
+      </ion-toolbar>
+    </div>
+
+  <div id="navigation">
+    <ion-segment value="tutto" color="dark" animation="no-animation" (ionChange)="filtraDispositivi($event)">
+      <ion-segment-button value="tutto">
+        <ion-label color="light">Tutto</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="luci">
+        <ion-label color="light">Luci</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="tapparelle">
+        <ion-label color="light">Tapparelle</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="preferiti">
+        <ion-label><ion-icon name="star" color="warning"></ion-icon></ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+
+  @for(dispositivo of dispositiviMostrati;track $index){
+    @if(dispositivo.tipo == 0)
+    {
+      <app-luce [nome]="dispositivo.nome" [stato]="dispositivo.stato" [favourite]="dispositivo.favourite"></app-luce>
+    }
+  }
+  
+
+
+</ion-content>

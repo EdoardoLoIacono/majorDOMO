@@ -1,0 +1,18 @@
+#wrap{
+    width: 93%;
+    margin: 0 auto;
+    margin-top: 12px;
+    
+}
+
+ion-item {
+    --border-radius: 12px;
+    margin: 5px 0;
+    height: 65px; 
+    --min-height: 65px; 
+    display: flex;
+    align-items: center;
+    --ion-color-base:#fff !important;
+  }
+  
+  
