@@ -78,8 +78,8 @@ ion-segment {
   ion-segment-button::part(indicator-background) {
     background: #6CEAA2;
     border-radius: 25px;
-    width: 93.7px;
-    margin-left: -2px;
+    width: inherit;
+
   }
   
 

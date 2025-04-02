@@ -30,6 +30,7 @@ export class HomePage implements OnInit{
 
   ngOnInit(): void {
     this.preferiti = this.favouriteService.getFavoriteDevices().slice(0,2)
+    console.log(this.preferiti)
   }
 
   goToCategory(category: any){

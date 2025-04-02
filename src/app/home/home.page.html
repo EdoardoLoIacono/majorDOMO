@@ -8,10 +8,24 @@
     <section class="preferiti">
       <h2>Preferiti</h2>
       <div class="preferiti-grid">
-        @for(dispositivo of preferiti;track $index){
-          @if(dispositivo.tipo == 0)
-          {
-            <app-luce [nome]="dispositivo.nome" [stato]="dispositivo.stato" [favourite]="dispositivo.favourite"></app-luce>
+        @if(preferiti.length == 0)
+        {
+          <ion-card>
+            <ion-card-content class="card-content">
+                <ion-text color="light">
+                    <h4><b>Benvenuto su Majordomo app</b></h4> 
+                    <p>Aggiungi dei dispositivi preferiti<br>per vederli direttamente qui</p>
+                </ion-text>
+            </ion-card-content>
+            <img src="assets/favourite.png" alt="">
+        </ion-card>
+        }
+        @else{
+          @for(dispositivo of preferiti;track $index){
+            @if(dispositivo.tipo == 0)
+            {
+              <app-luce [nome]="dispositivo.nome" [stato]="dispositivo.stato" [favourite]="dispositivo.favourite"></app-luce>
+            }
           }
         }
       </div>
