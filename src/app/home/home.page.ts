@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { Route, Router } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
+import { NgFor } from '@angular/common';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
-  standalone: false,
+    selector: 'app-home',
+    templateUrl: 'home.page.html',
+    styleUrls: ['home.page.scss'],
+    imports: [IonicModule, NgFor],
 })
 export class HomePage {
 
@@ -32,4 +34,5 @@ export class HomePage {
   goHome(){
     this.router.navigate(['home'])
   }
+
 }

@@ -42,13 +42,22 @@
 .categorie-container {
   padding: 20px;
   margin: auto; /* Center horizontally */
-  bottom: 180px;
+  bottom: 190px;
   position: absolute;
   color: black;
   width: 100%;
 
   h2{
     color: black;
+  }
+}
+.preferiti{
+  position: absolute;
+  top: 130px;
+  width: 100%;
+  color: black;
+  h2{
+    margin-left: 20px;
   }
 }
 

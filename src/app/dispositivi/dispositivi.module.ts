@@ -9,8 +9,7 @@ import { LuceComponent } from '../dispositivo/luce/luce.component';
 const routes: Routes = [{ path: '', component: DispositiviPage }];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes), IonicModule, CommonModule, FormsModule],
-  declarations: [DispositiviPage,LuceComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    imports: [RouterModule.forChild(routes), IonicModule, CommonModule, FormsModule, DispositiviPage, LuceComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class DispositiviPageModule {}

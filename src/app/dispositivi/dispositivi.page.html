@@ -1,12 +1,14 @@
 <ion-content [fullscreen]="false">
-    <div id="head">
-      <ion-toolbar color="trasparent">
-        <ion-buttons slot="start">
-          <span>&lt;</span>
-        </ion-buttons>
-        <ion-title color="light">Dispositivi</ion-title>
-      </ion-toolbar>
-    </div>
+  <div id="head">
+    <ion-toolbar color="trasparent">
+      <ion-buttons slot="start">
+        <ion-button class="back-button" routerLink="/home" routerlinkactive="active" color="light">
+          <ion-icon name="chevron-back-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title color="light">Dispositivi</ion-title>
+    </ion-toolbar>
+  </div>
 
   <div id="navigation">
     <ion-segment value="tutto" color="dark" animation="no-animation" (ionChange)="filtraDispositivi($event)">

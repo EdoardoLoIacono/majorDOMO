@@ -1,27 +1,33 @@
-import { Component, EventEmitter, Input, OnInit, Output, output } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { IonicModule } from '@ionic/angular';
+import { FavoriteDevicesService } from 'src/app/services/favourite.service';
 
 @Component({
-  selector: 'app-luce',
-  templateUrl: './luce.component.html',
-  styleUrls: ['./luce.component.scss'],
-  standalone:false
+    selector: 'app-luce',
+    templateUrl: './luce.component.html',
+    styleUrls: ['./luce.component.scss'],
+    imports: [
+      IonicModule,
+      FormsModule
+    ],
 })
-export class LuceComponent  implements OnInit {
+export class LuceComponent {
+  @Input() favourite: boolean = false;
+  @Input() nome: string = '';
+  @Input() stato: boolean = false;
 
-  @Input() favourite:boolean = false;
-  @Input() nome:string = "";
-  @Input() stato:boolean = false;
 
-  @Output() aggiungiPreferito = new EventEmitter<boolean>()
+  constructor(private favouriteDeviceService: FavoriteDevicesService) {}
 
-  constructor() { }
+  manageFavourite() {
+    this.favourite = !this.favourite;
 
-  ngOnInit() {}
-
-  preferito(){
-    this.favourite = !this.favourite
-    this.aggiungiPreferito.emit(true)
+    if (this.favourite) {
+      this.favouriteDeviceService.addFavorite(this.nome);
+    } else {
+      this.favouriteDeviceService.removeFavorite(this.nome);
+    }
 
   }
-
 }
