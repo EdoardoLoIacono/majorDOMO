@@ -1,17 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { NgFor } from '@angular/common';
+import { LuceComponent } from '../dispositivo/luce/luce.component';
+import { FavoriteDevicesService } from '../services/favourite.service';
 
 @Component({
     selector: 'app-home',
     templateUrl: 'home.page.html',
     styleUrls: ['home.page.scss'],
-    imports: [IonicModule, NgFor],
+    imports: [IonicModule, NgFor, LuceComponent],
 })
-export class HomePage {
+export class HomePage implements OnInit{
 
-  constructor(private router: Router){}
+  preferiti: any[] = [];
+
+  constructor(private router: Router, private favouriteService: FavoriteDevicesService){}
 
   categories = [
     { name: 'Dispositivi', img: 'lampadina',route:'dispositivi' },
@@ -24,6 +28,9 @@ export class HomePage {
     { name: 'Telecamere', img: 'telecamere',route:'' }
   ];
 
+  ngOnInit(): void {
+    this.preferiti = this.favouriteService.getFavoriteDevices().slice(0,2)
+  }
 
   goToCategory(category: any){
     if(category.route){

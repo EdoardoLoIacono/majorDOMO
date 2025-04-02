@@ -5,6 +5,17 @@
     <img src="assets/logo.png" alt="Logo" id="logo">
     
     <!--Preferiti-->
+    <section class="preferiti">
+      <h2>Preferiti</h2>
+      <div class="preferiti-grid">
+        @for(dispositivo of preferiti;track $index){
+          @if(dispositivo.tipo == 0)
+          {
+            <app-luce [nome]="dispositivo.nome" [stato]="dispositivo.stato" [favourite]="dispositivo.favourite"></app-luce>
+          }
+        }
+      </div>
+    </section>
     <!--Categorie-->
 
     <section class="categorie-container">
