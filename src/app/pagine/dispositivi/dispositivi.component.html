@@ -28,12 +28,17 @@
   </div>
 
 
-  @for(dispositivo of dispositiviMostrati;track $index){
+  @for(dispositivo of listaDispositivi;track $index){
     @if(dispositivo.tipo == 0)
     {
       <app-luce [nome]="dispositivo.nome" [stato]="dispositivo.stato" [favourite]="dispositivo.favourite"></app-luce>
     }
+    @if(dispositivo.tipo == 1)
+    {
+      <app-tapparella [nome]="dispositivo.nome" [stato]="dispositivo.stato" [favourite]="dispositivo.favourite"></app-tapparella>
+    }
   }
+
   
 
 

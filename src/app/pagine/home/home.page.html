@@ -26,6 +26,10 @@
             {
               <app-luce [nome]="dispositivo.nome" [stato]="dispositivo.stato" [favourite]="dispositivo.favourite"></app-luce>
             }
+            @if(dispositivo.tipo == 1)
+            {
+              <app-tapparella [nome]="dispositivo.nome" [stato]="dispositivo.stato" [favourite]="dispositivo.favourite"></app-tapparella>
+            }
           }
         }
       </div>
@@ -35,10 +39,12 @@
     <section class="categorie-container">
       <h2>Categorie</h2>
       <div class="category-grid">
-        <ion-button *ngFor="let category of categories" color="dark" (click)="goToCategory(category)">
-          <img src="assets/{{category.img}}.png" alt="">
-          <span id="categoryText">{{ category.name }}</span>
-        </ion-button>
+        @for(category of categories;track $index){
+          <ion-button color="dark" routerLink="/{{category.route}}" routerLinkActive="active">
+            <img src="assets/{{category.img}}.png" alt="">
+            <span id="categoryText">{{ category.name }}</span>
+          </ion-button>
+        }
       </div>
     </section>
 
@@ -46,7 +52,7 @@
       <div id="footerTab">
         <ion-tab-bar>
           <ion-tab-button tab="home" class="active">
-            <ion-icon name="home-outline" (click)="goHome()"></ion-icon>
+            <ion-icon name="home-outline" routerLink="/home"></ion-icon>
             <p>Home</p>
           </ion-tab-button>
   

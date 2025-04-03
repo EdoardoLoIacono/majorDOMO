@@ -1,17 +1,19 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { RouteReuseStrategy, provideRouter, withPreloading, PreloadAllModules } from '@angular/router';
+import { IonicRouteStrategy, provideIonicAngular } from '@ionic/angular/standalone';
+import { addIcons } from 'ionicons';
+import * as allIcons from 'ionicons/icons';
 
-
-import { RouteReuseStrategy } from '@angular/router';
-import { IonicRouteStrategy, IonicModule } from '@ionic/angular';
-import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
-import { AppRoutingModule } from './app/app-routing.module';
+import { routes } from './app/app.routes';
 import { AppComponent } from './app/app.component';
-import { importProvidersFrom } from '@angular/core';
+
+// Importa tutte le icone
+addIcons(allIcons);
 
 bootstrapApplication(AppComponent, {
-    providers: [
-        importProvidersFrom(BrowserModule, IonicModule.forRoot(), AppRoutingModule),
-        { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
-    ]
-})
-  .catch(err => console.log(err));
+  providers: [
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    provideIonicAngular(),
+    provideRouter(routes, withPreloading(PreloadAllModules)),
+  ],
+});

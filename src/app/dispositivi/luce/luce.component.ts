@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { FavoriteDevicesService } from 'src/app/services/favourite.service';
+import { FavouriteDevicesService } from 'src/app/services/favourite.service';
 
 @Component({
     selector: 'app-luce',
@@ -13,12 +13,13 @@ import { FavoriteDevicesService } from 'src/app/services/favourite.service';
     ],
 })
 export class LuceComponent {
-  @Input() favourite: boolean = false;
-  @Input() nome: string = '';
-  @Input() stato: boolean = false;
+  @Input() favourite!: boolean;
+  @Input() nome!: string ;
+  @Input() stato!: boolean;
 
+  @Output() favouriteChanged = new EventEmitter<void>();
 
-  constructor(private favouriteDeviceService: FavoriteDevicesService) {}
+  constructor(private favouriteDeviceService: FavouriteDevicesService) {}
 
   manageFavourite() {
     this.favourite = !this.favourite;
@@ -28,6 +29,8 @@ export class LuceComponent {
     } else {
       this.favouriteDeviceService.removeFavorite(this.nome);
     }
+
+    this.favouriteChanged.emit();
 
   }
 }

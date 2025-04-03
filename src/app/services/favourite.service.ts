@@ -3,18 +3,17 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root',
 })
-export class FavoriteDevicesService {
+export class FavouriteDevicesService {
   private favoritesKey = 'favoriteDevices';
 
-  // Lista predefinita di dispositivi
   private devices = [
     {
-      nome: 'LED1',
+      nome: 'Led1',
       stato: false,
       tipo: 0,
     },
     {
-      nome: 'LED2',
+      nome: 'Led2',
       stato: true,
       tipo: 0,
     },
@@ -27,7 +26,6 @@ export class FavoriteDevicesService {
 
   constructor() {}
 
-  // Aggiungi un dispositivo ai preferiti
   addFavorite(deviceId: string): void {
     const favorites = this.getFavorites();
     if (!favorites.includes(deviceId)) {
@@ -36,25 +34,21 @@ export class FavoriteDevicesService {
     }
   }
 
-  // Rimuovi un dispositivo dai preferiti
   removeFavorite(deviceId: string): void {
     const favorites = this.getFavorites();
     const updatedFavorites = favorites.filter((id) => id !== deviceId);
     this.saveFavorites(updatedFavorites);
   }
 
-  // Ottieni i preferiti salvati
   getFavorites(): string[] {
     const favorites = localStorage.getItem(this.favoritesKey);
     return favorites ? JSON.parse(favorites) : [];
   }
 
-  // Salva i preferiti in localStorage
   private saveFavorites(favorites: string[]): void {
     localStorage.setItem(this.favoritesKey, JSON.stringify(favorites));
   }
 
-  // Restituisci solo i dispositivi preferiti
   getFavoriteDevices(): any[] {
     const favorites = this.getFavorites();
     return this.devices
@@ -69,7 +63,7 @@ export class FavoriteDevicesService {
     const favorites = this.getFavorites();
     return devices.map((device) => ({
       ...device,
-      favourite: favorites.includes(device.nome), 
+      favourite: favorites.includes(device.nome),
     }));
   }
 }

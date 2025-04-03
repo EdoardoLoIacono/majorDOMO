@@ -1,0 +1,15 @@
+<ion-card class="ingresso-card">
+  <div class="content">
+    <ion-icon
+    [name]="favourite ? 'star' : 'star-outline'"
+    slot="start"
+    color="warning"
+    (click)="manageFavourite()"
+    ></ion-icon>
+    <h2>Ingresso principale</h2>
+    <span class="percentage">{{ percentage }}%</span>
+  </div>
+  <div class="slider-container">
+    <ion-range min="0" max="100" class="custom-range" (ionChange)="changePercentage($event)"></ion-range>
+  </div>
+</ion-card>
