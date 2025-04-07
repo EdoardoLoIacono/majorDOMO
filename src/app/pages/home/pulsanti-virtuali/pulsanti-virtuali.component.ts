@@ -6,12 +6,10 @@ import { IonicModule } from '@ionic/angular';
   selector: 'app-pulsanti-virtuali',
   templateUrl: './pulsanti-virtuali.component.html',
   styleUrls: ['./pulsanti-virtuali.component.scss'],
-  imports: [IonicModule,RouterLink,RouterLinkActive]
+  imports: [IonicModule, RouterLink],
 })
-export class PulsantiVirtualiComponent  implements OnInit {
-
-  constructor() { }
+export class PulsantiVirtualiComponent implements OnInit {
+  constructor() {}
 
   ngOnInit() {}
-
 }

@@ -1,0 +1,21 @@
+ion-content {
+  --ion-background-color: #f5f6f7;
+}
+h1 {
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 50px;
+}
+
+#head {
+  height: 110px;
+  display: flex;
+  align-items: center;
+
+  span {
+    color: black;
+    font-weight: bold;
+    margin-left: 15px;
+  }
+}

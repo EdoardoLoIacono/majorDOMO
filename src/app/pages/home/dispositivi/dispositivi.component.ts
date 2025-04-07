@@ -1,21 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { FavouriteDevicesService } from '../../services/favourite.service';
+import { FavouriteDevicesService } from 'src/app/services/favourite.service';
 import { IonicModule } from '@ionic/angular';
-import { LuceComponent } from 'src/app/dispositivi/luce/luce.component';
-import { TapparellaComponent } from 'src/app/dispositivi/tapparella/tapparella.component';
-
+import { LuceComponent } from 'src/app/shared/luce/luce.component';
+import { TapparellaComponent } from 'src/app/shared/tapparella/tapparella.component';
 
 @Component({
-    selector: 'app-dispositivi',
-    templateUrl: './dispositivi.component.html',
-    styleUrls: ['./dispositivi.component.scss'],
-    imports: [
-        IonicModule,
-        RouterLink,
-        LuceComponent,
-        TapparellaComponent
-    ],
+  selector: 'app-dispositivi',
+  templateUrl: './dispositivi.component.html',
+  styleUrls: ['./dispositivi.component.scss'],
+  imports: [IonicModule, RouterLink, LuceComponent, TapparellaComponent],
 })
 export class DispositiviPage implements OnInit {
   filtro: string = 'luci';
@@ -61,9 +55,10 @@ export class DispositiviPage implements OnInit {
   async filtraDispositivi(event: any) {
     const filtro = event.detail.value;
 
-    const dispositiviAggiornati = this.favouriteService.updateDevicesWithFavorites(
-      this.listaDispositiviOriginale
-    );
+    const dispositiviAggiornati =
+      this.favouriteService.updateDevicesWithFavorites(
+        this.listaDispositiviOriginale
+      );
 
     if (filtro === 'tutti') {
       this.listaDispositivi = [...dispositiviAggiornati];
@@ -75,5 +70,4 @@ export class DispositiviPage implements OnInit {
       this.listaDispositivi = dispositiviAggiornati.filter((d) => d.favourite);
     }
   }
-  
 }
