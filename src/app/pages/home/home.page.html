@@ -1,75 +1,79 @@
 <app-navigation />
 
+<app-morph-background />
 
-<ion-content [fullscreen]="true">
-  <app-morph-background />
-
+<div class="max-width-container">
   <!--Logo-->
-  <img src="assets/logo.png" alt="Logo" id="logo">
+  <img src="assets/logo.svg" alt="MajorDomo" class="logo" />
 
   <!--Preferiti-->
-  <section class="preferiti">
+  <div class="favourites">
+    <!-- <h2>Preferiti</h2> -->
+
+    <ion-grid>
+      <ion-row class="ion-align-items-center">
+        <ion-col size="8">
+          <h3>Benvenuto su Majordomo app</h3>
+          <ion-text color="tertiary">
+            Aggiungi i dispositivi ai shortcut per accedervi direttamente da
+            qui.
+          </ion-text>
+          <ion-button color="secondary">Aggiungi dispositivi</ion-button>
+        </ion-col>
+
+        <ion-col>
+          <img src="assets/favourite.png" alt="Preferiti" />
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <!-- <section class="preferiti">
     <h2>Preferiti</h2>
     <div class="preferiti-grid">
-      @if(preferiti.length == 0)
-      {
+      @if(preferiti.length == 0) {
       <ion-card>
         <ion-card-content class="card-content">
           <ion-text color="light">
             <h4><b>Benvenuto su Majordomo app</b></h4>
-            <p>Aggiungi dei dispositivi preferiti<br>per vederli direttamente qui</p>
+            <p>
+              Aggiungi dei dispositivi preferiti<br />per vederli direttamente
+              qui
+            </p>
           </ion-text>
         </ion-card-content>
-        <img src="assets/favourite.png" alt="">
+        <img src="assets/favourite.png" alt="" />
       </ion-card>
-      }
-      @else{
-      @for(dispositivo of preferiti;track $index){
-      @if(dispositivo.tipo == 0)
-      {
-      <app-luce [nome]="dispositivo.nome" [stato]="dispositivo.stato" [favourite]="dispositivo.favourite"></app-luce>
-      }
-      @if(dispositivo.tipo == 1)
-      {
-      <app-tapparella [nome]="dispositivo.nome" [stato]="dispositivo.stato"
-        [favourite]="dispositivo.favourite"></app-tapparella>
-      }
-      }
-      }
+      } @else{ @for(dispositivo of preferiti;track $index){ @if(dispositivo.tipo
+      == 0) {
+      <app-luce
+        [nome]="dispositivo.nome"
+        [stato]="dispositivo.stato"
+        [favourite]="dispositivo.favourite"
+      ></app-luce>
+      } @if(dispositivo.tipo == 1) {
+      <app-tapparella
+        [nome]="dispositivo.nome"
+        [stato]="dispositivo.stato"
+        [favourite]="dispositivo.favourite"
+      ></app-tapparella>
+      } } }
     </div>
-  </section>
+  </section> -->
+
   <!--Categorie-->
 
-  <section class="categorie-container">
+  <div class="categories">
     <h2>Categorie</h2>
-    <div class="category-grid">
-      @for(category of categories;track $index){
-      <ion-button color="dark" routerLink="/{{category.route}}" routerLinkActive="active">
-        <img src="assets/{{category.img}}.png" alt="">
-        <span id="categoryText">{{ category.name }}</span>
-      </ion-button>
+
+    <div class="categories__grid">
+      @for(category of categories; track $index){
+      <a color="primary" [routerLink]="['/home', category.route]">
+        <img [src]="'assets/' + category.img + '.png'" alt="" />
+        <span>{{ category.name }}</span>
+      </a>
       }
     </div>
-  </section>
+  </div>
 
-  <!-- <footer class="ion-fixed bottom-0 start-0 end-0">
-      <div id="footerTab">
-        <ion-tab-bar>
-          <ion-button [routerLink]="['/home']">
-            <ion-icon name="home-outline" routerLink="/home"></ion-icon>
-            <p>Home</p>
-          </ion-button>
-
-          <ion-button [routerLink]="['/statistiche']">
-            <ion-icon name="analytics-outline"></ion-icon>
-            <p>Statistiche</p>
-          </ion-button>
-
-          <ion-button [routerLink]="['/account']">
-            <ion-icon name="person-outline"></ion-icon>
-            <p>Account</p>
-          </ion-button>
-        </ion-tab-bar>
-      </div>
-    </footer> -->
-</ion-content>
+  <router-outlet></router-outlet>
+</div>

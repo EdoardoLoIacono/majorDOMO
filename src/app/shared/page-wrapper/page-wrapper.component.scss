@@ -1,0 +1,17 @@
+ion-header {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+
+  ion-toolbar {
+    --background: var(--ion-background-color);
+    --color: var(--ion-text-color);
+
+    ion-back-button {
+      text-transform: none;
+    }
+  }
+}
+
+.max-width-wrapper {
+  max-width: 600px;
+  margin: auto;
+}

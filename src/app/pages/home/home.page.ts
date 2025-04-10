@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
-import { NgFor } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { FavouriteDevicesService } from '../../services/favourite.service';
 import { LuceComponent } from 'src/app/shared/luce/luce.component';
 import { TapparellaComponent } from 'src/app/shared/tapparella/tapparella.component';
@@ -21,6 +21,7 @@ import { MorphBackgroundComponent } from 'src/app/shared/morph-background/morph-
     RouterLinkActive,
     NavigationComponent,
     MorphBackgroundComponent,
+    RouterModule,
   ],
 })
 export class HomePage implements OnInit {
@@ -34,7 +35,7 @@ export class HomePage implements OnInit {
   categories = [
     { name: 'Dispositivi', img: 'lampadina', route: 'dispositivi' },
     { name: 'Stanze', img: 'porta', route: '' },
-    { name: 'Pulsanti virtuali', img: 'pulsanti', route: 'pulsantiVirtuali' },
+    { name: 'Pulsanti virtuali', img: 'pulsanti', route: 'pulsanti-virtuali' },
     { name: 'Clima', img: 'clima', route: '' },
     { name: 'Allarmi', img: 'allarmi', route: '' },
     { name: 'Funzioni', img: 'funzioni', route: '' },

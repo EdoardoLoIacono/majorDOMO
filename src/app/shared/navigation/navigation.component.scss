@@ -3,8 +3,10 @@ nav {
   z-index: 150;
   background-color: #242733;
   width: 95%;
-  left: 2.5%;
-  bottom: 1.5rem;
+  max-width: 600px;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: var(--ion-safe-area-bottom);
   border-radius: 1rem;
 
   ul {
