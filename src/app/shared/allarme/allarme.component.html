@@ -1,0 +1,13 @@
+<ion-card class="ingresso-card" color="dark">
+  <div class="card-header">
+    <div class="text-content">
+      <h1>{{ titolo }}</h1>
+      <p class="stato" [ngStyle]="{color: stato?'red':'gray'}">{{ !stato?'spento':'acceso' }}</p>
+    </div>
+    <ion-icon name="lock-closed-outline" class="lock-icon" [ngStyle]="{color: stato?'red':'gray'}"></ion-icon>
+  </div>
+
+  <ion-button expand="block" fill="clear" class="attiva-btn" (click)="onOff()">
+    {{stato?'Disattiva':'Attiva'}}
+  </ion-button>
+</ion-card>

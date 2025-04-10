@@ -1,13 +1,11 @@
 .background {
   position: fixed;
   z-index: -1;
-  height: 60vh;
+  height: 100%;
   width: 100%;
   background: linear-gradient(#dfffe6, #f5f6f7);
   user-select: none;
   pointer-events: none;
-  top: 0;
-  left: 0;
 
   svg {
     width: 100%;

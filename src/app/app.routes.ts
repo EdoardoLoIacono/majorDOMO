@@ -1,45 +1,48 @@
 import { Routes } from '@angular/router';
-
-import { PageWrapperComponent } from './shared/page-wrapper/page-wrapper.component';
-
 import { HomePage } from './pages/home/home.page';
-import { DispositiviPage } from './pages/home/dispositivi/dispositivi.component';
-import { PulsantiVirtualiComponent } from './pages/home/pulsanti-virtuali/pulsanti-virtuali.component';
-
-import { StatistichePage } from './pages/statistiche/statistiche.page';
-
+import { DispositiviPage } from './pages/dispositivi/dispositivi.component';
+import { PulsantiVirtualiComponent } from './pages/pulsanti-virtuali/pulsanti-virtuali.component';
+import { AllarmiComponent } from './pages/allarmi/allarmi.component';
 import { AccountPage } from './pages/account/account.page';
+import { StatistichePage } from './pages/statistiche/statistiche.page';
+import { ImpostazioniPage } from './pages/impostazioni/impostazioni.page';
+import { StanzeComponent } from './pages/stanze/stanze.component';
 
 export const routes: Routes = [
   {
+    path: 'home',
+    component: HomePage,
+    children:[
+      
+    ]
+  },
+  {
     path: '',
-    component: PageWrapperComponent,
-    children: [
-      {
-        path: 'home',
-        component: HomePage,
-      },
-      {
-        path: 'home/dispositivi',
-        component: DispositiviPage,
-      },
-      {
-        path: 'home/pulsanti-virtuali',
-        component: PulsantiVirtualiComponent,
-      },
-      {
-        path: 'statistiche',
-        component: StatistichePage,
-      },
-      {
-        path: 'account',
-        component: AccountPage,
-      },
-      {
-        path: '',
-        redirectTo: 'home',
-        pathMatch: 'full',
-      },
-    ],
+    redirectTo: 'home',
+    pathMatch: 'full',
+  },
+  {
+    path: 'dispositivi',
+    component: DispositiviPage
+  },
+  {
+    path: 'pulsantiVirtuali',
+    component: PulsantiVirtualiComponent
+  },
+  {
+    path: 'allarmi',
+    component: AllarmiComponent
+  },
+  {
+    path: 'stanze',
+    component: StanzeComponent
+  },
+  {
+    path: 'statistiche',
+    component: StatistichePage,
+  },
+  {
+    path: 'account',
+    component: ImpostazioniPage,
   },
 ];

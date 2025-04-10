@@ -1,0 +1,97 @@
+ion-content {
+    --ion-background-color: #F5F6F7;
+  }
+  
+  // Header styling
+  #head {
+    height: 110px;
+    display: flex;
+    align-items: center;
+  }
+  
+  // Navigation segment
+  #navigation {
+    display: flex;
+  }
+  
+  ion-segment {
+    margin: 0px;
+    width: 100%;
+  
+    ion-segment-button {
+      --indicator-box-shadow: transparent !important;
+      border-radius: 2.5rem !important;
+      padding: 0.5rem;
+      margin: 0;
+      --background: white;
+      --color: #2d2e87;
+      --background-checked: linear-gradient(to right, #2d2e87, #0083CB) !important;
+      --color-checked: white;
+      --indicator-color: transparent !important;
+      font-weight: bold;
+      background-color: #e0e0e0;
+      border-radius: 10px;
+      --indicator-transition: none;
+  
+      &.segment-button-checked {
+        font-weight: bold;
+        background-color: #e0e0e0;
+        border-radius: 10px;
+      }
+    }
+  }
+  
+  ion-segment-button::part(indicator-background) {
+    background: #6CEAA2;
+    border-radius: 25px;
+    width: inherit;
+  }
+
+
+.stanze-list {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    .stanza-card {
+      margin-bottom: 16px;
+      border-radius: 16px;
+      overflow: hidden;
+      width: 100%;          
+      max-width: 550px;      
+      
+      .stanza-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px;
+        cursor: pointer;
+      }
+      
+      .dispositivi-container {
+        padding: 0 16px 16px;  
+        width: 100%;
+        
+        .dispositivo-item {
+          margin-bottom: 12px;
+          width: 100%;
+          
+          ::ng-deep app-luce, 
+          ::ng-deep app-tapparella {
+            width: 100%;
+            display: block;
+            
+            ion-card {
+              width: 100%;
+              margin: 0;
+            }
+          }
+          
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }

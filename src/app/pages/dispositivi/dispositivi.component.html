@@ -1,0 +1,44 @@
+<ion-content [fullscreen]="false">
+  <div id="head">
+    <ion-toolbar color="trasparent">
+      <ion-buttons slot="start">
+        <ion-button class="back-button" routerLink="/home" routerlinkactive="active" color="light">
+          <ion-icon name="chevron-back-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title color="light">Dispositivi</ion-title>
+    </ion-toolbar>
+  </div>
+
+  <div id="navigation">
+    <ion-segment value="tutto" color="dark" animation="no-animation" (ionChange)="filtraDispositivi($event)">
+      <ion-segment-button value="tutto">
+        <ion-label color="light">Tutto</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="luci">
+        <ion-label color="light">Luci</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="tapparelle">
+        <ion-label color="light">Tapparelle</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="preferiti">
+        <ion-label><ion-icon name="star" color="warning"></ion-icon></ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+
+  @for(dispositivo of this.dispositiviService.dispositivi;track $index){
+    @if(dispositivo.tipo == 0)
+    {
+      <app-luce [nome]="dispositivo.nome" [stato]="dispositivo.stato" [favourite]="dispositivo.favourite"></app-luce>
+    }
+    @if(dispositivo.tipo == 1 || dispositivo.tipo == 2)
+    {
+      <app-tapparella [nome]="dispositivo.nome" [stato]="dispositivo.stato" [favourite]="dispositivo.favourite"></app-tapparella>
+    }
+  }
+
+
+
+</ion-content>

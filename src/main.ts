@@ -6,6 +6,7 @@ import * as allIcons from 'ionicons/icons';
 
 import { routes } from './app/app.routes';
 import { AppComponent } from './app/app.component';
+import { provideHttpClient } from '@angular/common/http';
 
 // Importa tutte le icone
 addIcons(allIcons);
@@ -15,5 +16,6 @@ bootstrapApplication(AppComponent, {
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     provideIonicAngular(),
     provideRouter(routes, withPreloading(PreloadAllModules)),
+    provideHttpClient()
   ],
 });

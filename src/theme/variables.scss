@@ -1,21 +1,2 @@
 // For information on how to create your own theme, please see:
 // http://ionicframework.com/docs/theming/
-
-ion-app {
-  --ion-background-color: #f5f6f7;
-  --ion-background-color-rgb: 245, 246, 247;
-
-  --ion-text-color: #000000;
-  --ion-text-color-rgb: 0, 0, 0;
-
-  --ion-color-primary: #fff;
-  --ion-color-primary-contrast: #000;
-  --ion-color-secondary: #e5f5f6;
-  --ion-color-secondary-contrast: #00a0a6;
-  --ion-color-tertiary: #727272;
-  --ion-color-background: var(--ion-background-color);
-
-  // rimuovere in prod
-  --ion-safe-area-top: 2.5rem;
-  --ion-safe-area-bottom: 0.5rem;
-}

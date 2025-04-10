@@ -1,79 +1,53 @@
 <app-navigation />
+<title>Home</title>
+<ion-content [fullscreen]="true">
+  <app-morph-background />
+    <!--Logo-->
+    <img src="assets/logo.png" alt="Logo" id="logo">
+    
+    <!--Preferiti-->
+    <section class="preferiti">
+      <h2>Preferiti</h2>
+      <div class="preferiti-grid">
+        @if(preferiti.length == 0)
+        {
+          <ion-card>
+            <ion-card-content class="card-content">
+                <ion-text color="light">
+                    <h4><b>Benvenuto su Majordomo app</b></h4> 
+                    <p>Aggiungi dei dispositivi preferiti<br>per vederli direttamente qui</p>
+                </ion-text>
+            </ion-card-content>
+            <img src="assets/favourite.png" alt="">
+        </ion-card>
+        }
+        @else{
+          @for(dispositivo of preferiti;track $index){
+            @if(dispositivo.tipo == 0)
+            {
+              <app-luce [nome]="dispositivo.nome" [stato]="dispositivo.stato" [favourite]="dispositivo.favourite"></app-luce>
+            }
+            @if(dispositivo.tipo == 1)
+            {
+              <app-tapparella [nome]="dispositivo.nome" [stato]="dispositivo.stato" [favourite]="dispositivo.favourite"></app-tapparella>
+            }
+          }
+        }
+      </div>
+    </section>
+    <!--Categorie-->
 
-<app-morph-background />
+    <section class="categorie-container">
+      <h2>Categorie</h2>
+      <div class="category-grid">
+        @for(category of categories;track $index){
+          <ion-button color="dark" routerLink="/{{category.route}}" routerLinkActive="active">
+            <img src="assets/{{category.img}}.png" alt="">
+            <span id="categoryText">{{ category.name }}</span>
+          </ion-button>
+        }
+      </div>
+    </section>
 
-<div class="max-width-container">
-  <!--Logo-->
-  <img src="assets/logo.svg" alt="MajorDomo" class="logo" />
 
-  <!--Preferiti-->
-  <div class="favourites">
-    <!-- <h2>Preferiti</h2> -->
-
-    <ion-grid>
-      <ion-row class="ion-align-items-center">
-        <ion-col size="8">
-          <h3>Benvenuto su Majordomo app</h3>
-          <ion-text color="tertiary">
-            Aggiungi i dispositivi ai shortcut per accedervi direttamente da
-            qui.
-          </ion-text>
-          <ion-button color="secondary">Aggiungi dispositivi</ion-button>
-        </ion-col>
-
-        <ion-col>
-          <img src="assets/favourite.png" alt="Preferiti" />
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </div>
-  <!-- <section class="preferiti">
-    <h2>Preferiti</h2>
-    <div class="preferiti-grid">
-      @if(preferiti.length == 0) {
-      <ion-card>
-        <ion-card-content class="card-content">
-          <ion-text color="light">
-            <h4><b>Benvenuto su Majordomo app</b></h4>
-            <p>
-              Aggiungi dei dispositivi preferiti<br />per vederli direttamente
-              qui
-            </p>
-          </ion-text>
-        </ion-card-content>
-        <img src="assets/favourite.png" alt="" />
-      </ion-card>
-      } @else{ @for(dispositivo of preferiti;track $index){ @if(dispositivo.tipo
-      == 0) {
-      <app-luce
-        [nome]="dispositivo.nome"
-        [stato]="dispositivo.stato"
-        [favourite]="dispositivo.favourite"
-      ></app-luce>
-      } @if(dispositivo.tipo == 1) {
-      <app-tapparella
-        [nome]="dispositivo.nome"
-        [stato]="dispositivo.stato"
-        [favourite]="dispositivo.favourite"
-      ></app-tapparella>
-      } } }
-    </div>
-  </section> -->
-
-  <!--Categorie-->
-
-  <div class="categories">
-    <h2>Categorie</h2>
-
-    <div class="categories__grid">
-      @for(category of categories; track $index){
-      <a color="primary" [routerLink]="['/home', category.route]">
-        <img [src]="'assets/' + category.img + '.png'" alt="" />
-        <span>{{ category.name }}</span>
-      </a>
-      }
-    </div>
-  </div>
-
-  <router-outlet></router-outlet>
-</div>
+</ion-content>

@@ -1,0 +1,32 @@
+.buongiorno-card {
+    border-radius: 20px;
+    padding: 16px;
+  
+    .card-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  
+      .text-content {
+        h1 {
+          font-size: 1.4em;
+          font-weight: bold;
+          margin: 0;
+        }
+  
+        h2 {
+          font-size: 1em;
+          font-weight: 400;
+          color: gray;
+          margin: 4px 0 0 0;
+        }
+      }
+  
+      ion-button {
+        --border-radius: 50%;
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
+  

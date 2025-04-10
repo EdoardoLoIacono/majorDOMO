@@ -1,0 +1,39 @@
+.ingresso-card {
+    border-radius: 20px;
+    padding: 16px;
+  
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+  
+      .text-content {
+        h1 {
+          font-size: 1.3em;
+          font-weight: bold;
+          margin: 0;
+        }
+  
+        .stato {
+          margin: 4px 0 0;
+          font-size: 1em;
+        }
+      }
+  
+      .lock-icon {
+        font-size: 28px;
+        color: black;
+      }
+    }
+  
+    .attiva-btn {
+      margin-top: 20px;
+      --background: #eaf6f7;
+      color: #31989d;
+      border-radius: 50px;
+      height: 48px;
+      font-size: 1.1em;
+      text-transform: none;
+    }
+  }
+  

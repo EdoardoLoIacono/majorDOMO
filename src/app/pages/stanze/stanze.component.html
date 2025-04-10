@@ -1,0 +1,55 @@
+<ion-content [fullscreen]="false">
+  <!-- Header -->
+  <div id="head">
+    <ion-toolbar color="trasparent">
+      <ion-buttons slot="start">
+        <ion-button class="back-button" routerLink="/home" routerlinkactive="active" color="light">
+          <ion-icon name="chevron-back-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title color="light">Stanze</ion-title>
+    </ion-toolbar>
+  </div>
+
+  <!-- Lista stanze -->
+  <div class="stanze-list">
+    @for(stanza of listaStanze; track stanza.id) {
+      <ion-card class="stanza-card" color="dark">
+        <!-- Intestazione stanza (cliccabile) -->
+        <div class="stanza-header" (click)="toggleStanza(stanza)">
+          <div class="stanza-info">
+            <h2>{{ stanza.nome }}</h2>
+          </div>
+          <ion-icon 
+            [name]="stanza.expanded ? 'chevron-up' : 'chevron-down'"
+            class="toggle-icon">
+          </ion-icon>
+        </div>
+
+        <!-- Dispositivi della stanza (visibili quando espanso) -->
+        @if(stanza.expanded) {
+        <div class="dispositivi-container">
+          @for(dispositivo of stanza.dispositivi; track dispositivo.id) {
+            <div class="dispositivo-item">
+              @if(dispositivo.tipo === 0) {
+                <app-luce 
+                  [nome]="dispositivo.nome" 
+                  [stato]="dispositivo.stato" 
+                  [favourite]="dispositivo.favourite">
+                </app-luce>
+              }
+              @if(dispositivo.tipo === 1) {
+                <app-tapparella 
+                  [nome]="dispositivo.nome" 
+                  [stato]="dispositivo.stato" 
+                  [favourite]="dispositivo.favourite">
+                </app-tapparella>
+              }
+            </div>
+          }
+        </div>
+        }
+      </ion-card>
+    }
+  </div>
+</ion-content>
