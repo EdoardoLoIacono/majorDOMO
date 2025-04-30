@@ -29,18 +29,10 @@
   height: 100%;
 
 }
-#logo{
-  width: 187px;
-  height: 24px;
-  position: absolute;
-  top: 90px;
-  left: 25px;
-}
-
 
 .categorie-container {
   padding: 20px;
-  margin: auto; /* Center horizontally */
+  margin: auto;
   bottom: 140px;
   position: absolute;
   color: black;
@@ -259,7 +251,7 @@ ion-tab-button.tab-selected {
 }
 
 
-@media (max-width: 375px) {
+@media (max-height: 800px) {
   .preferiti {
     display: none; 
   }
@@ -274,8 +266,9 @@ ion-tab-button.tab-selected {
 
   
   .md .category-grid ion-button {
-    width: 85% !important;
+    width: 95% !important;
     margin: 12px auto;
+    color: red;
     
     font-size: 12px; 
   }
@@ -283,4 +276,10 @@ ion-tab-button.tab-selected {
   h2{
     text-align: center;
   }
+}
+
+@media (max-height: 850px) {
+  .preferiti ion-card{
+    margin-top: -30px
+  } 
 }

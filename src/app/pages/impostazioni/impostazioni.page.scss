@@ -1,31 +1,148 @@
-ion-content{
-    --ion-background-color: #F5F6F7
+// Variabili per coerenza
+:host {
+  --card-border-radius: 12px;
+  --primary-text-color: #333333;
+  --secondary-text-color: #666666;
+  --spacing-unit: 16px;
+  --transition-speed: 0.2s;
+}
+
+// Contenitore principale
+.content-container {
+  padding: var(--spacing-unit);
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+
+.user-profile {
+  background: white;
+  border-radius: var(--card-border-radius);
+  padding: var(--spacing-unit);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  
+  ion-avatar {
+    width: 64px;
+    height: 64px;
+    margin-right: 20px;
+    border: 2px solid #f2f2f2;
   }
-  h1{
-      color: black;
-      font-weight: bold;
-      text-align: center;
-      margin-top: 50px;
+  
+  .user-details {
+    h2 {
+      color: var(--primary-text-color);
+      font-weight: 600;
+      margin: 0 0 4px;
+      font-size: 18px;
+    }
+    
+    p {
+      color: var(--secondary-text-color);
+      margin: 0;
+      font-size: 14px;
+    }
+  }
+}
+
+// Container per le card
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+// Card impostazioni
+.setting-card {
+  margin: 0;
+  border-radius: var(--card-border-radius);
+  overflow: hidden;
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  
+  &:active {
+    transform: scale(0.98);
   }
   
-  
-    #head{
-      height: 110px;
-      display: flex;
-      align-items: center;
-  
-      span{
-        color: black;
-        font-weight: bold;
-        margin-left: 15px;
+  ion-card-content {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    
+    ion-icon {
+      font-size: 24px;
+      margin-right: 20px;
+      
+      // Colori diversi per le diverse icone
+      &[name="person"] {
+        color: #4a7aff;
+      }
+      
+      &[name="star"] {
+        color: #ffb400;
+      }
+      
+      &[name="exit"] {
+        color: #ff4961;
       }
     }
-  
-
-    #logo{
-      width: 187px;
-      height: 24px;
-      position: absolute;
-      top: 90px;
-      left: 25px;
+    
+    .card-text {
+      flex: 1;
+      
+      h3 {
+        margin: 0;
+        color: var(--primary-text-color);
+        font-weight: 500;
+        font-size: 16px;
+      }
     }
+    
+    .chevron {
+      font-size: 18px;
+      color: #999;
+      opacity: 0.7;
+    }
+  }
+}
+
+// Dark mode specifico
+.setting-card[color="dark"] {
+  --ion-color-base: #333333;
+  --ion-color-contrast: white;
+  
+  .card-text h3 {
+    color: white;
+  }
+  
+  &:last-child {
+    margin-top: 8px; // Spaziatura extra per il pulsante di uscita
+  }
+}
+
+// Animazione hover
+@media (hover: hover) {
+  .setting-card:hover {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+}
+
+// Responsive design
+@media (max-width: 360px) {
+  .user-profile ion-avatar {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .setting-card ion-card-content {
+    padding: 16px;
+    
+    ion-icon {
+      font-size: 20px;
+    }
+  }
+}

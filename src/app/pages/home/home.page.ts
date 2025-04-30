@@ -26,8 +26,7 @@ export class HomePage implements OnInit {
     { name: 'Pulsanti virtuali', img: 'pulsanti', route: 'pulsantiVirtuali' },
     { name: 'Clima', img: 'clima', route: '' },
     { name: 'Allarmi', img: 'allarmi', route: 'allarmi' },
-    { name: 'Funzioni', img: 'funzioni', route: '' },
-    { name: 'Videocitofono', img: 'telecamere', route: '' },
+    { name: 'Videocitofono', img: 'citofono', route: '' },
     { name: 'Telecamere', img: 'telecamere', route: '' },
   ];
 

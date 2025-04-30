@@ -1,6 +1,50 @@
 <app-navigation />
 <ion-content [fullscreen]="false">
-<app-morph-background />
+  <app-morph-background />
   
-<img src="assets/logo.png" alt="Logo" id="logo">
+  <div class="content-container">
+    <!-- Logo -->
+    <img src="assets/logo.png" alt="Logo" id="logo">
+    
+
+        <div class="user-profile">
+          <ion-avatar>
+            <img alt="Foto profilo" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+          </ion-avatar>
+          <div class="user-details">
+            <h2>Username</h2>
+            <p>ID: 1234</p>
+          </div>
+        </div>
+    
+    <div class="cards-container">
+        <ion-card button="true" class="setting-card" color="dark">
+            <ion-card-content>
+                <ion-icon name="person"></ion-icon>
+              <div class="card-text">
+                <h3>Gestisci utenti ed autorizzazioni</h3>
+              </div>
+              <ion-icon name="chevron-forward-outline" class="chevron"></ion-icon>
+            </ion-card-content>
+          </ion-card>
+        <ion-card button="true" class="setting-card" color="dark">
+            <ion-card-content>
+            <ion-icon name="star"></ion-icon>
+              <div class="card-text">
+                <h3>Valutaci</h3>
+              </div>
+              <ion-icon name="chevron-forward-outline" class="chevron"></ion-icon>
+            </ion-card-content>
+          </ion-card>
+        <ion-card button="true" class="setting-card" color="dark">
+            <ion-card-content>
+                <ion-icon name="exit"></ion-icon>
+              <div class="card-text">
+                <h3>Esci dall'account</h3>
+              </div>
+              <ion-icon name="chevron-forward-outline" class="chevron"></ion-icon>
+            </ion-card-content>
+          </ion-card>
+    </div>
+  </div>
 </ion-content>

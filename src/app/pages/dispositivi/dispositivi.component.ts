@@ -23,29 +23,6 @@ export class DispositiviPage implements OnInit {
 
   filtro: string = 'luci';
 
-  listaDispositiviOriginale = [
-    {
-      favourite: false,
-      nome: 'Led1',
-      stato: false,
-      tipo: 0,
-    },
-    {
-      favourite: false,
-      nome: 'Led2',
-      stato: true,
-      tipo: 0,
-    },
-    {
-      favourite: false,
-      nome: 'Tapparella1',
-      stato: true,
-      tipo: 1,
-    },
-  ];
-
-  listaDispositivi = [...this.listaDispositiviOriginale];
-
   constructor(
     private router: Router,
     private favouriteService: FavouriteDevicesService,
@@ -56,16 +33,9 @@ export class DispositiviPage implements OnInit {
     this.dispositiviService.getDispositivi()
   }
 
-  goHome() {
-    this.router.navigate(['home']);
-  }
 
   async filtraDispositivi(event: any) {
     const filtro = event.detail.value;
-
-    const dispositiviAggiornati = this.favouriteService.updateDevicesWithFavorites(
-      this.listaDispositiviOriginale
-    );
 
     if (filtro === 'tutti') {
       this.dispositiviService.getDispositivi();
