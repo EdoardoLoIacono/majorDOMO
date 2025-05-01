@@ -45,4 +45,8 @@ export const routes: Routes = [
     path: 'account',
     component: ImpostazioniPage,
   },
+  {
+    path: 'stanze',
+    component: StanzeComponent
+  }
 ];

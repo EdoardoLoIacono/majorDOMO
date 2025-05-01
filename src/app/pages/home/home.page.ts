@@ -22,7 +22,7 @@ export class HomePage implements OnInit {
 
   categories = [
     { name: 'Dispositivi', img: 'lampadina', route: 'dispositivi' },
-    { name: 'Stanze', img: 'porta', route: '' },
+    { name: 'Stanze', img: 'porta', route: 'stanze' },
     { name: 'Pulsanti virtuali', img: 'pulsanti', route: 'pulsantiVirtuali' },
     { name: 'Clima', img: 'clima', route: '' },
     { name: 'Allarmi', img: 'allarmi', route: 'allarmi' },
