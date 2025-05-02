@@ -7,6 +7,7 @@ import { AccountPage } from './pages/account/account.page';
 import { StatistichePage } from './pages/statistiche/statistiche.page';
 import { ImpostazioniPage } from './pages/impostazioni/impostazioni.page';
 import { StanzeComponent } from './pages/stanze/stanze.component';
+import { ClimaComponent } from './pages/clima/clima.component';
 
 export const routes: Routes = [
   {
@@ -48,5 +49,9 @@ export const routes: Routes = [
   {
     path: 'stanze',
     component: StanzeComponent
+  },
+  {
+    path: 'clima',
+    component: ClimaComponent
   }
 ];

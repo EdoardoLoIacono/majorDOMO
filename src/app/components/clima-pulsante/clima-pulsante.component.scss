@@ -1,0 +1,197 @@
+.climate-card {
+    background-color: white;
+    border-radius: 16px;
+    padding: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    margin: 10px; 
+  }
+  
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px; 
+  }
+  
+  .room-info {
+    h1 {
+      font-size: 22px;
+      font-weight: bold;
+      margin: 0;
+      color: #000;
+    }
+  
+    .status {
+      margin: 2px 0 0;
+      font-size: 14px; 
+      color: #38ad36;
+      
+      &.active {
+        color: #38ad36;
+      }
+      
+      &:not(.active) {
+        color: #888;
+      }
+    }
+  }
+  
+  .temperature {
+    color: #000;
+    font-size: 22px; 
+    font-weight: bold;
+    position: relative;
+  }
+  
+  .action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; 
+    
+    ion-button {
+      --background: #e9f7f7;
+      --color: #35a7ad;
+      --border-radius: 50px;
+      --padding-top: 12px;
+      --padding-bottom: 12px; 
+      
+      font-size: 16px; 
+      margin: 0;
+      height: 40px;
+      font-weight: normal;
+      text-transform: none;
+      box-shadow: none;
+    }
+    
+    .timer-btn, .power-btn {
+      --background: #e9f7f7;
+      --color: #35a7ad;
+    }
+  }
+
+
+//
+.timer-badge {
+    font-size: 12px;
+    background-color: rgba(56, 173, 54, 0.15);
+    padding: 2px 6px;
+    border-radius: 10px;
+    margin-left: 8px;
+  }
+  
+  .timer-selector-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+    align-items: flex-end;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0s 0.3s;
+    
+    &.visible {
+      visibility: visible;
+      opacity: 1;
+      transition: opacity 0.3s;
+    }
+  }
+  
+  .timer-selector-container {
+    background-color: white;
+    border-radius: 20px 20px 0 0;
+    width: 100%;
+    padding: 20px;
+    transform: translateY(100%);
+    transition: transform 0.3s;
+    
+    .timer-selector-overlay.visible & {
+      transform: translateY(0);
+    }
+  }
+  
+  .timer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    
+    h2 {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0;
+      color: #000;
+    }
+    
+    ion-icon {
+      font-size: 24px;
+      color: #888;
+      cursor: pointer;
+    }
+  }
+  
+  .time-picker {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    
+    .time-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 80px;
+      
+      .time-label {
+        font-size: 14px;
+        color: #888;
+        margin-bottom: 10px;
+      }
+    }
+    
+    .time-separator {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 0 15px;
+      color: #000;
+    }
+    
+    ion-picker-column {
+      height: 100px;
+      overflow-y: auto;
+    }
+    
+    
+    .picker-item {
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      color: #888;
+      transition: all 0.2s;
+      
+      &.selected {
+        color: #35a7ad;
+        font-size: 28px;
+        font-weight: bold;
+      }
+    }
+  }
+  
+  .timer-actions {
+    
+    .set-timer-btn {
+      --background: #e9f7f7;
+      --color: #35a7ad;
+      --border-radius: 50px;
+      font-size: 16px;
+      height: 45px;
+      font-weight: 500;
+      text-transform: none;
+    }
+  }
+  
