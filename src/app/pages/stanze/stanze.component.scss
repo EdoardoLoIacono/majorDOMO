@@ -1,59 +1,31 @@
+:host {
+  --card-border-radius: 18px;
+  --primary-color: #3880ff;
+  --text-color: #333333;
+  --background-color: #F5F6F7;
+  --card-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --header-height: 85px;
+}
+
 ion-content {
-    --ion-background-color: #F5F6F7;
+  --ion-background-color: var(--background-color);
+}
+
+
+.compact-room-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 16px; 
+  padding: 16px;
+  
+  @media (min-width: 768px) {
+    width: 90%;
+    max-width: 768px;
+    margin: 0 auto; 
   }
   
-  #head {
-    height: 80px; // Ridotto da 110px
-    display: flex;
-    align-items: center;
-  }
-  
-  .compact-room-grid {
-    display: grid;
-    // Griglia adattiva: più colonne su schermi più grandi
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); // Ridotto da 160px
-    gap: 10px; // Ridotto da 16px
+  @media (max-width: 340px) {
+    gap: 12px;
     padding: 10px;
-    
-    // Assicura che le card non diventino troppo grandi su schermi XL
-    @media (min-width: 1200px) {
-      grid-template-columns: repeat(auto-fill, minmax(140px, 220px));
-      justify-content: center;
-    }
-    
-    // Ancora più compatto su mobile
-    @media (max-width: 576px) {
-      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-      gap: 8px;
-      padding: 8px;
-    }
   }
-  
-  // Aggiunta per controllare l'altezza delle card
-  .room-item {
-    display: block;
-    height: 100%;
-    
-    ::ng-deep .room-card {
-      height: 100%;
-      margin: 0;
-    }
-    
-    // Riduci il padding interno nel componente figlio
-    ::ng-deep ion-card-content {
-      padding: 10px !important;
-    }
-    
-    // Riduci la dimensione dei font nel componente figlio
-    ::ng-deep h3 {
-      font-size: 16px !important;
-    }
-    
-    ::ng-deep .summary-value {
-      font-size: 18px !important;
-    }
-    
-    ::ng-deep .summary-label {
-      font-size: 11px !important;
-    }
-  }
+}

@@ -10,6 +10,32 @@
     </ion-toolbar>
   </div>
   
+  <ion-card class="delay-card">
+    <ion-card-content>
+      <div class="delay-header">
+        <ion-icon name="timer-outline"></ion-icon>
+        <h2>Ritardo attivazione</h2>
+      </div>
+      
+      <div class="delay-value">
+        <span>{{ delay || '0' }} secondi</span>
+      </div>
+      
+      <ion-range 
+        [min]="0" 
+        [max]="120" 
+        [step]="5" 
+        [(ngModel)]="delay" 
+        labelPlacement="fixed">
+        <div slot="label">Ritardo</div>
+      </ion-range>
+      
+      <ion-button expand="block" class="delay-button" (click)="saveDelay()">
+        <ion-icon name="save-outline" slot="start"></ion-icon>
+        Salva impostazioni
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
 
   <app-allarme></app-allarme>
 </ion-content>
