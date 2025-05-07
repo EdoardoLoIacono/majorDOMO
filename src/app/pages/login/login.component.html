@@ -1,0 +1,27 @@
+<ion-content fullscreen class="intro-content" color="dark">
+  <div class="background-overlay">
+    @if(!showScanner){
+      <div>
+        <img src="assets/logo.png" alt="Logo" id="logo" />
+        <p>Controlla la tua casa dove vuoi, <br />quando vuoi.</p>
+      </div>
+    }
+
+    @if(showLogin && !showScanner){
+      <div class="bottom-card animate-in">
+        <p>Inquadra il QR Code sul tuo MajorDomo per iniziare.</p>
+        <ion-button expand="block" class="camera-btn" (click)="openCamera()">
+          Accedi alla telecamera
+          <ion-icon name="camera-outline" slot="end"></ion-icon>
+        </ion-button>
+      </div>
+    }
+
+    @if(showScanner){
+      <div class="scanner-box">
+        <div id="reader" #scanner></div>
+        <ion-button color="danger" (click)="stopScanner()">Chiudi</ion-button>
+      </div>
+    }
+  </div>
+</ion-content>

@@ -26,8 +26,8 @@ export class HomePage implements OnInit {
     { name: 'Pulsanti virtuali', img: 'pulsanti', route: 'pulsantiVirtuali' },
     { name: 'Clima', img: 'clima', route: 'clima' },
     { name: 'Allarmi', img: 'allarmi', route: 'allarmi' },
-    { name: 'Videocitofono', img: 'citofono', route: '' },
-    { name: 'Telecamere', img: 'telecamere', route: '' },
+    { name: 'Videocitofono', img: 'citofono', route: 'videocitofono' },
+    { name: 'Telecamere', img: 'telecamere', route: 'telecamere' },
   ];
 
   ngOnInit(): void {
