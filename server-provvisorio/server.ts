@@ -94,6 +94,20 @@ app.get('/api/collections', async (req: Request, res: Response) => {
   });
 });
 
+app.get('/api/getStanze', async (req: Request, res: Response) => {
+  const client = new MongoClient(connectionString);
+  try {
+    await client.connect();
+    const collection = client.db(dbName).collection('dispositivi'); 
+    const data = await collection.distinct("stanza");
+    res.send(data);
+  } catch (err) {
+    res.status(500).send(`Error in query execution: ${err}`);
+  } finally {
+    await client.close();
+  }
+});
+
 app.get('/api/:collection', async (req: Request, res: Response) => {
   const { collection: collectionName } = req.params;
   const filter: any = req.query;
@@ -141,6 +155,7 @@ app.get('/api/:collection/:id', async (req: Request, res: Response) => {
       client.close();
     });
 });
+
 
 app.post('/api/:collection/', async (req: Request, res: Response) => {
   const newRecord = req.body;
@@ -251,6 +266,8 @@ app.patch('/api/:collection/:id', async (req: Request, res: Response) => {
       client.close();
     });
 });
+
+
 /* ********************** Default Route & Error Handler ********************** */
 app.use('/', (req: Request, res: Response) => {
   res.status(404);

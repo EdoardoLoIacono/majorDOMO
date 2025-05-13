@@ -1,0 +1,70 @@
+.room-card {
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 0;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    transition: all 0.25s ease;
+    height: 100%;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    }
+  }
+  
+  .room-header {
+    padding: 16px 16px 12px;
+    
+    .room-title {
+      text-align: center;
+      
+      h3 {
+        margin: 0;
+        font-size: 18px; // Aumentato da 16px
+        font-weight: 600;
+        color: #333;
+        line-height: 1.3;
+      }
+    }
+  }
+  
+  ion-card-content {
+    padding: 0 16px 16px;
+  }
+  
+  .device-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 14px 0;
+    margin: 0 0 10px;
+    
+    .summary-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+      
+      .summary-value {
+        font-size: 18px;
+        font-weight: 600;
+        color: #555;
+        line-height: 1;
+      }
+      
+      .summary-label {
+        font-size: 11px;
+        color: #888;
+        margin-top: 4px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      
+      &.active .summary-value {
+        color: #4CAF50;
+      }
+    }
+    
+  }
+  

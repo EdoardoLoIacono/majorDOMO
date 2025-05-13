@@ -1,0 +1,27 @@
+<ion-card class="room-card">
+  <div class="room-header">
+    <div class="room-title">
+      <h3>{{nome}}</h3>
+    </div>
+  </div>
+  
+  <ion-card-content>
+    <div class="device-summary">
+      <div class="summary-item">
+        <div class="summary-value">{{nDispositivi}}</div>
+        <div class="summary-label">Dispositivi</div>
+      </div>
+      
+      <div class="divider"></div>
+      
+      <div class="summary-item" [class.active]="dispositiviAttivi > 0">
+        <div class="summary-value">{{dispositiviAttivi}}</div>
+        <div class="summary-label">Attivi</div>
+      </div>
+    </div>
+    
+    <ion-button expand="block" class="view-devices-btn" fill="clear" color="success">
+      visualizza
+    </ion-button>
+  </ion-card-content>
+</ion-card>

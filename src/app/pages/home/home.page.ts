@@ -35,13 +35,12 @@ export class HomePage implements OnInit {
 
   categories = [
     { name: 'Dispositivi', img: 'lampadina', route: 'dispositivi' },
-    { name: 'Stanze', img: 'porta', route: '' },
+    { name: 'Stanze', img: 'porta', route: 'stanze' },
     { name: 'Pulsanti virtuali', img: 'pulsanti', route: 'pulsantiVirtuali' },
-    { name: 'Clima', img: 'clima', route: '' },
+    { name: 'Clima', img: 'clima', route: 'clima' },
     { name: 'Allarmi', img: 'allarmi', route: 'allarmi' },
-    { name: 'Funzioni', img: 'funzioni', route: '' },
-    { name: 'Videocitofono', img: 'telecamere', route: '' },
-    { name: 'Telecamere', img: 'telecamere', route: '' },
+    { name: 'Videocitofono', img: 'citofono', route: 'videocitofono' },
+    { name: 'Telecamere', img: 'telecamere', route: 'telecamere' },
   ];
 
   ngOnInit(): void {

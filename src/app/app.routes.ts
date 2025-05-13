@@ -7,6 +7,10 @@ import { AccountPage } from './pages/account/account.page';
 import { StatistichePage } from './pages/statistiche/statistiche.page';
 import { ImpostazioniPage } from './pages/impostazioni/impostazioni.page';
 import { StanzeComponent } from './pages/stanze/stanze.component';
+import { ClimaComponent } from './pages/clima/clima.component';
+import { VideocitofonoComponent } from './pages/videocitofono/videocitofono.component';
+import { TelecamereComponent } from './pages/telecamere/telecamere.component';
+import { LoginComponent } from './pages/login/login.component';
 
 export const routes: Routes = [
   {
@@ -45,4 +49,24 @@ export const routes: Routes = [
     path: 'account',
     component: ImpostazioniPage,
   },
+  {
+    path: 'stanze',
+    component: StanzeComponent
+  },
+  {
+    path: 'clima',
+    component: ClimaComponent
+  },
+  {
+    path: 'videocitofono',
+    component: VideocitofonoComponent
+  },
+  {
+    path: 'telecamere',
+    component: TelecamereComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  }
 ];

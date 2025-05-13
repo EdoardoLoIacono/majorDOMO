@@ -1,0 +1,87 @@
+<div class="climate-card">
+  <div class="card-header">
+    <div class="room-info">
+      <h1>{{ stanza }}</h1>
+      <p class="status" [ngClass]="{'active': attivo}">
+        @if(attivo) {
+          @if(timerAttivo)
+          {
+            Il timer si accenderà alle: {{accensioneTimer}}
+          }
+        @else
+        {
+          Acceso
+        }
+        } 
+        @else {
+          Spento
+        }
+      </p>
+    </div>
+    <div class="temperature" color="success">{{ temperatura }}°</div>
+  </div>
+  
+  <div class="action-buttons">
+    <ion-button expand="block" fill="clear" class="timer-btn" (click)="apriTemporizzatore()">
+      Temporizza
+    </ion-button>
+    
+    <ion-button expand="block" fill="clear" class="power-btn" (click)="gestisciStato()">
+      @if(attivo){
+        Spegni
+      }
+      @else{
+        Accendi
+      }
+    </ion-button>
+  </div>
+</div>
+
+<div class="timer-selector-overlay" [class.visible]="mostraTimer" (click)="chiudiTemporizzatore()">
+  <div class="timer-selector-container" (click)="$event.stopPropagation()">
+    <div class="timer-header">
+      <h2>{{ stanza }}</h2>
+      <ion-icon name="close-outline" (click)="chiudiTemporizzatore()"></ion-icon>
+    </div>
+    
+    <div class="time-picker">
+      <div class="time-column">
+        <div class="time-label">Ore</div>
+        <ion-picker-column class="hours-column">
+          <div class="picker-items">
+            <div 
+              *ngFor="let hour of hours" 
+              class="picker-item" 
+              [class.selected]="oraSelezionata === hour"
+              (click)="oraSelezionata = hour">
+              {{ hour }}
+            </div>
+          </div>
+        </ion-picker-column>
+      </div>
+      
+      <div class="time-separator">:</div>
+      
+      <div class="time-column">
+        <div class="time-label">Minuti</div>
+        <ion-picker-column class="minutes-column">
+          <div class="picker-items">
+            <div 
+              *ngFor="let minute of minutes" 
+              class="picker-item" 
+              [class.selected]="minutiSelezionati === minute"
+              (click)="minutiSelezionati = minute">
+              {{ minute }}
+            </div>
+          </div>
+        </ion-picker-column>
+      </div>
+    </div>
+    
+    <div class="timer-actions">
+      <ion-button expand="block" (click)="impostaTimer()" class="set-timer-btn" >
+        Imposta Timer
+      </ion-button>
+    </div>
+  </div>
+</div>
