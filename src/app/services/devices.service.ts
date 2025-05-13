@@ -1,6 +1,6 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { Device } from '../models/device';
-import { filter, Subscription } from 'rxjs';
+import { filter, retry, Subscription } from 'rxjs';
 import { WebsocketService } from './websocket.service';
 import { environment } from 'src/environments/environment.development';
 
@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment.development';
   providedIn: 'root',
 })
 export class DevicesService {
-  public state: any = {};
+  public devicesState: { [key: string]: Device[] } = {};
   private wsSub?: Subscription;
   private token: string = '';
 
@@ -66,19 +66,26 @@ export class DevicesService {
           });
           break;
         case 'get_state':
-          this.state = data.data.STANZE;
+          this.devicesState = data.data.STANZE;
           break;
       }
     };
   }
 
-  public getDevices(): Device[] {
-    const filteredDevices: Device[] = [];
-    for (const room in this.state) {
-      for (const device of this.state[room]) {
-        filteredDevices.push(device);
+  public getDevicesByRoom(room: string = '',type: number = -1): { [key: string]: Device[] } | Device[] {
+    if (room === '') {
+      const filteredState: { [key: string]: Device[] } = JSON.parse(JSON.stringify(this.devicesState));
+      for (const room in this.devicesState) {
+        if (this.devicesState.hasOwnProperty(room)) {
+          filteredState[room] = this.devicesState[room].filter(device => device.tipo === type || type === -1);
+        }
       }
+      return filteredState;
     }
-    return filteredDevices;
+    return this.devicesState[room].filter((e) => {console.log(e);return e.tipo === type || type === -1}) || [];
+  }
+
+  public getDevices(): any {
+    return this.devicesState;
   }
 }

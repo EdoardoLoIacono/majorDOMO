@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { FavouriteDevicesService } from '../../services/favourite.service';
 import { IonicModule } from '@ionic/angular';
 import { LuceComponent } from 'src/app/shared/luce/luce.component';
 import { TapparellaComponent } from 'src/app/shared/tapparella/tapparella.component';
 import { DispositiviService } from 'src/app/services/dispositivi.service';
+import { DevicesService } from 'src/app/services/devices.service';
+import { KeyValuePipe } from '@angular/common';
 
 
 @Component({
@@ -15,36 +17,50 @@ import { DispositiviService } from 'src/app/services/dispositivi.service';
         IonicModule,
         RouterLink,
         LuceComponent,
-        TapparellaComponent
+        TapparellaComponent,
+        KeyValuePipe
     ],
 })
-export class DispositiviPage implements OnInit {
+export class DispositiviPage implements OnInit, AfterViewInit {
 
 
   filtro: string = 'luci';
+  rooms: any;
 
   constructor(
     private router: Router,
     private favouriteService: FavouriteDevicesService,
-    public dispositiviService: DispositiviService
+    public dispositiviService: DispositiviService,
+    public devicesService: DevicesService,
   ) {}
-
+  ngAfterViewInit(): void {
+  }
+  
   ngOnInit() {
-    this.dispositiviService.getDispositivi()
+    setTimeout(() => {
+      const t = this.devicesService.getDevicesByRoom();
+    this.rooms = t;
+      
+    }, 2500);
+    // this.dispositiviService.getDispositivi()
   }
 
 
   async filtraDispositivi(event: any) {
     const filtro = event.detail.value;
 
-    if (filtro === 'tutti') {
-      this.dispositiviService.getDispositivi();
+    if (filtro === 'tutto') {
+      this.rooms = this.devicesService.getDevicesByRoom();
     }
-    else
-    {
-      this.dispositiviService.getDispositiviFiltrati(filtro);
+    else if(filtro === 'luci') {
+      this.rooms = this.devicesService.getDevicesByRoom(undefined, 0);
+    }
+    else if(filtro === 'tapparelle') {
+      {
+        this.rooms = this.devicesService.getDevicesByRoom(undefined, 1);
     }
   
+    }
   }
   
 }

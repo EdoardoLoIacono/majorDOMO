@@ -28,15 +28,18 @@
   </div>
 
 
-  @for(dispositivo of this.dispositiviService.dispositivi;track $index){
-    @if(dispositivo.tipo == 0)
-    {
-      <app-luce [nome]="dispositivo.nome" [stato]="dispositivo.stato" [favourite]="dispositivo.favourite"></app-luce>
-    }
-    @if(dispositivo.tipo == 1 || dispositivo.tipo == 2)
-    {
-      <app-tapparella [nome]="dispositivo.nome" [stato]="dispositivo.stato" [favourite]="dispositivo.favourite"></app-tapparella>
-    }
+  @for(room of this.rooms | keyvalue ;track room.key){
+    <label for="" style="color: black;">
+      STANZA: {{room.key}}
+      @for(device of this.rooms[room.key + ""]; track $index) {
+        @if(device.tipo === 0) {
+          <app-luce [nome]="device.nome" [stato]="device.stato" [favourite]="device.favourite"></app-luce>
+        }
+        @if(device.tipo === 1 || device.tipo === 2) {
+            <app-tapparella [nome]="device.nome" [stato]="device.stato" [favourite]="device.favourite"></app-tapparella>
+          }
+        }
+    </label>
   }
 
 
