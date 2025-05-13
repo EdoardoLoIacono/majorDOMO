@@ -13,7 +13,6 @@ export class TapparellaComponent  implements OnInit {
   @Input() favourite!: boolean;
   @Input() nome!: string ;
   @Input() stato!: boolean;
-  percentage: number = 0;
 
   constructor(private favouriteDeviceService: FavouriteDevicesService) {}
 
@@ -29,7 +28,7 @@ export class TapparellaComponent  implements OnInit {
   }
 
   changePercentage(event: any) {
-    this.percentage = event.detail.value;
+    // TODO
   }
 
   ngOnInit() {}

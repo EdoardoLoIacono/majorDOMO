@@ -6,10 +6,10 @@
     color="warning"
     (click)="manageFavourite()"
     ></ion-icon>
-    <h2>Ingresso principale</h2>
-    <span class="percentage">{{ percentage }}%</span>
+    <h2>{{nome}}</h2>
+    <span class="percentage">{{ this.stato }}%</span>
   </div>
   <div class="slider-container">
-    <ion-range min="0" max="100" class="custom-range" (ionChange)="changePercentage($event)"></ion-range>
+    <ion-range min="0" [value]="this.stato" max="100" class="custom-range" (ionChange)="changePercentage($event)"></ion-range>
   </div>
 </ion-card>

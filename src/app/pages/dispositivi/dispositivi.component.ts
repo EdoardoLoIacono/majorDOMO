@@ -53,11 +53,11 @@ export class DispositiviPage implements OnInit, AfterViewInit {
       this.rooms = this.devicesService.getDevicesByRoom();
     }
     else if(filtro === 'luci') {
-      this.rooms = this.devicesService.getDevicesByRoom(undefined, 0);
+      this.rooms = this.devicesService.getDevicesByRoom('', 0);
     }
     else if(filtro === 'tapparelle') {
       {
-        this.rooms = this.devicesService.getDevicesByRoom(undefined, 1);
+        this.rooms = this.devicesService.getDevicesByRoom('', 1);
     }
   
     }
