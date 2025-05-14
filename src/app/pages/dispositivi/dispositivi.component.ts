@@ -26,6 +26,7 @@ export class DispositiviPage implements OnInit, AfterViewInit {
 
   filtro: string = 'luci';
   rooms: any;
+  openRooms: any;
 
   constructor(
     private router: Router,
@@ -42,9 +43,7 @@ export class DispositiviPage implements OnInit, AfterViewInit {
     this.rooms = t;
       
     }, 2500);
-    // this.dispositiviService.getDispositivi()
   }
-
 
   async filtraDispositivi(event: any) {
     const filtro = event.detail.value;

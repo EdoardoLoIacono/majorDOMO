@@ -29,17 +29,19 @@
 
 
   @for(room of this.rooms | keyvalue ;track room.key){
-    <label for="" style="color: black;">
-      STANZA: {{room.key}}
-      @for(device of this.rooms[room.key + ""]; track $index) {
-        @if(device.tipo === 0) {
-          <app-luce [nome]="device.nome" [stato]="device.stato" [favourite]="device.favourite"></app-luce>
-        }
-        @if(device.tipo === 1 || device.tipo === 2) {
-            <app-tapparella [nome]="device.nome" [stato]="device.stato" [favourite]="device.favourite"></app-tapparella>
+    @if(this.rooms[room.key+""]?.length > 0){
+      <div class="room-header">
+        <span>{{ room.key }}</span>
+      </div>
+        @for(device of this.rooms[room.key + ""]; track $index) {
+          @if(device.tipo === 0) {
+            <app-luce [nome]="device.nome" [stato]="device.stato" [favourite]="device.favourite"></app-luce>
           }
-        }
-    </label>
+          @if(device.tipo === 1 || device.tipo === 2) {
+              <app-tapparella [nome]="device.nome" [stato]="device.stato" [favourite]="device.favourite"></app-tapparella>
+            }
+          }
+    }
   }
 
 

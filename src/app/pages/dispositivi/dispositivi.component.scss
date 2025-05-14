@@ -45,8 +45,23 @@ ion-content{
       }
     }
   
-  
-    //Necessario per la
+
+    .room-header span{
+    color: black;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    margin: 15px;
+    font-size: 21pt;
+    justify-content: center;
+
+      background: #e9f7f7;
+      color: #35a7ad;
+      border-radius: 50px;
+      padding-top: 12px;
+      padding-bottom: 12px; 
+      
+    }
 
     .ios{
       ion-segment {
@@ -76,6 +91,8 @@ ion-content{
         }
       }
     }
+
+    
   
     ion-segment-button::part(indicator-background) {
       background: #6CEAA2;
