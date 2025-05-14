@@ -5,7 +5,8 @@ import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/stan
 import { IonAvatar, IonicModule } from '@ionic/angular';
 import { NavigationComponent } from 'src/app/shared/navigation/navigation.component';
 import { MorphBackgroundComponent } from 'src/app/shared/morph-background/morph-background.component';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { WebsocketService } from 'src/app/services/websocket.service';
 
 @Component({
   selector: 'app-impostazioni',
@@ -16,9 +17,19 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class ImpostazioniPage implements OnInit {
 
-  constructor() { }
+  constructor(private wsService: WebsocketService, private router: Router) { }
 
   ngOnInit() {
+    // this.wsService.ws.onopen = () => {
+    //       console.log('HERE')
+          // localStorage.setItem('user-data', JSON.stringify());
+    //       const data = localStorage.getItem('user-data');
+    //       if(data === null) {
+    //         this.router.navigate(['/login']);
+    //         return;
+    //       }
+    //       this.wsService.send(JSON.parse(data));
+    //     };
   }
 
 }

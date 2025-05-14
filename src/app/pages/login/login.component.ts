@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { Html5Qrcode } from 'html5-qrcode';
 import { Router } from '@angular/router';
+import { WebsocketService } from 'src/app/services/websocket.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit {
   @ViewChild('scanner', { static: false }) scannerRef!: ElementRef;
   html5QrCode!: Html5Qrcode;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private wsService: WebsocketService) {}
 
   ngOnInit() {
     setTimeout(() => {
@@ -59,12 +60,22 @@ export class LoginComponent implements OnInit {
               this.scannerActive = false;
               setTimeout(() => {
                 this.stopScanner();
-                if(decodedText == "Ciao mondo"){
-                  this.router.navigate(['/home']);
-                }
-                else{
-                  alert("QR code non valido")
-                  this.router.navigate(['/login']);
+                try {
+                  this.wsService.send(JSON.parse(decodedText));
+
+                  this.wsService.ws.onmessage = (event) => {
+                    const data = JSON.parse(event.data);
+                    if (data.method === 'error') {
+                      this.router.navigate(['/login']);
+                      return;
+                    }
+                    if(data.method === 'connected') {
+                      localStorage.setItem('token', data.token);
+                      this.router.navigate(['/home']);
+                    }
+                  }
+                } catch (error) {
+                  console.error('Errore durante la scansione del QR code:', error);
                 }
               }, 500);
             },

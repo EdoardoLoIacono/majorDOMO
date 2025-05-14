@@ -6,9 +6,13 @@ import { environment } from 'src/environments/environment.development';
   providedIn: 'root',
 })
 export class WebsocketService {
-  public ws: WebSocket;
+  public ws!: WebSocket;
 
   constructor() {
+    this.init();
+  }
+
+  init() {
     this.ws = new WebSocket(environment.webSocketUrl);
 
     this.ws.onopen = () => {
@@ -25,6 +29,8 @@ export class WebsocketService {
 
     this.ws.onclose = (event: CloseEvent) => {
       console.log('Websocket disconnesso');
+      this.init();
+      console.log('Riconnessione in corso...');
     };
   }
 
