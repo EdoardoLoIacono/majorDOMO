@@ -106,3 +106,35 @@ ion-content{
       font-weight: normal;
     }
     
+    ion-segment-button {
+  white-space: nowrap; 
+  text-overflow: clip; 
+  overflow: visible; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  padding: 0 12px; 
+  min-width: auto; 
+}
+
+ion-label {
+  white-space: nowrap; 
+  overflow: visible; 
+  text-overflow: clip; 
+}
+
+.scrollable-segment {
+  overflow-x: auto; 
+  white-space: nowrap; 
+  -webkit-overflow-scrolling: touch; 
+}
+
+ion-segment {
+  display: inline-flex; 
+  width: max-content;
+}
+
+ion-segment-button {
+  flex: 0 0 auto; 
+  padding: 0 12px; 
+}

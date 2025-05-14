@@ -10,22 +10,22 @@
     </ion-toolbar>
   </div>
 
-  <div id="navigation">
-    <ion-segment value="tutto" color="dark" animation="no-animation" (ionChange)="filtraDispositivi($event)">
-      <ion-segment-button value="tutto">
-        <ion-label color="light">Tutto</ion-label>
-      </ion-segment-button>
-      <ion-segment-button value="luci">
-        <ion-label color="light">Luci</ion-label>
-      </ion-segment-button>
-      <ion-segment-button value="tapparelle">
-        <ion-label color="light">Tapparelle</ion-label>
-      </ion-segment-button>
-      <ion-segment-button value="preferiti">
-        <ion-label><ion-icon name="star" color="warning"></ion-icon></ion-label>
-      </ion-segment-button>
-    </ion-segment>
-  </div>
+<div id="navigation" class="scrollable-segment">
+  <ion-segment value="tutto" color="dark" animation="no-animation" (ionChange)="filtraDispositivi($event)">
+    <ion-segment-button value="tutto">
+      <ion-label color="light">Tutto</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="luci">
+      <ion-label color="light">Luci</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="tapparelle">
+      <ion-label color="light">Tapparelle</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="preferiti">
+      <ion-label><ion-icon name="star" color="warning"></ion-icon></ion-label>
+    </ion-segment-button>
+  </ion-segment>
+</div>
 
 
   @for(room of this.rooms | keyvalue ;track room.key){

@@ -52,6 +52,28 @@ nav {
     }
   }
   
-  .active{
-    color: white !important;
+ion-button.active {
+  background: transparent;
+}
+
+ion-button.active svg path {
+  fill: #ffffff !important;
+}
+
+ion-button svg path {
+  transition: fill 0.3s ease;
+}
+ion-button {
+  transform: none !important;
+  transition: none !important;
+
+  &:active,
+  &:focus {
+    transform: none !important;
+    box-shadow: none !important;
   }
+
+  &:hover {
+    transform: none !important;
+  }
+}

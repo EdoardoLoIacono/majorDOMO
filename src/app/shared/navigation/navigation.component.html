@@ -1,18 +1,17 @@
 <nav>
   <ul>
-    <ion-button [routerLink]="['/home']" routerDirection="root">
+    <ion-button [routerLink]="['/home']" routerDirection="root" routerLinkActive="active">
       <div class="content">
         <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd"
             d="M9.47558 0.000372222C9.31566 0.00597341 9.16168 0.063881 9.03613 0.165634L1.92969 5.90771C1.02774 6.63674 0.5 7.75075 0.5 8.92849V18.718C0.5 19.4172 1.0682 20 1.75 20H6.75C7.4318 20 8 19.4172 8 18.718V13.5899C8 13.4386 8.10248 13.3335 8.25 13.3335H10.75C10.8975 13.3335 11 13.4386 11 13.5899V18.718C11 19.4172 11.5682 20 12.25 20H17.25C17.9318 20 18.5 19.4172 18.5 18.718V8.92849C18.5 7.75075 17.9723 6.63674 17.0703 5.90771L9.96387 0.165634C9.82517 0.053264 9.65225 -0.00526422 9.47558 0.000372222ZM16.1426 7.11663L9.5 1.74914L2.85742 7.11663C2.31537 7.55476 2 8.22115 2 8.92849V18.4616H6.5V13.5899C6.5 12.6079 7.29252 11.795 8.25 11.795H10.75C11.7075 11.795 12.5 12.6079 12.5 13.5899V18.4616H17V8.92849C17 8.22115 16.6846 7.55476 16.1426 7.11663Z"
-            fill="#A7A8AD" />
+            [attr.fill]="isActive('/home') ? '#FFFFFF' : '#A7A8AD'" />
         </svg>
-
         <span>Home</span>
       </div>
     </ion-button>
 
-    <ion-button [routerLink]="['/statistiche']" routerDirection="root">
+    <ion-button [routerLink]="['/statistiche']" routerDirection="root" routerLinkActive="active">
       <div class="content">
         <svg width="27" height="20" viewBox="0 0 27 20" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
@@ -33,14 +32,13 @@
       </div>
     </ion-button>
 
-    <ion-button [routerLink]="['/account']" routerDirection="root">
+    <ion-button [routerLink]="['/account']" routerDirection="root" routerLinkActive="active">
       <div class="content">
         <svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M8 0C5.24746 0 3 2.24746 3 5C3 7.75254 5.24746 10 8 10C10.7525 10 13 7.75254 13 5C13 2.24746 10.7525 0 8 0ZM8 1.5C9.94188 1.5 11.5 3.05812 11.5 5C11.5 6.94188 9.94188 8.5 8 8.5C6.05812 8.5 4.5 6.94188 4.5 5C4.5 3.05812 6.05812 1.5 8 1.5ZM2.25 12C1.01625 12 0 13.0162 0 14.25V14.8496C0 16.32 0.932357 17.639 2.35449 18.5459C3.77663 19.4528 5.72242 20 8 20C10.2776 20 12.2234 19.4528 13.6455 18.5459C15.0676 17.639 16 16.32 16 14.8496V14.25C16 13.0162 14.9838 12 13.75 12H2.25ZM2.25 13.5H13.75C14.1732 13.5 14.5 13.8268 14.5 14.25V14.8496C14.5 15.6822 13.9637 16.5639 12.8389 17.2812C11.714 17.9986 10.0344 18.5 8 18.5C5.96558 18.5 4.286 17.9986 3.16113 17.2812C2.03627 16.5639 1.5 15.6822 1.5 14.8496V14.25C1.5 13.8268 1.82675 13.5 2.25 13.5Z"
-            fill="#A7A8AD" />
+            [attr.fill]="isActive('/account') ? '#FFFFFF' : '#A7A8AD'" />
         </svg>
-
         <span>Account</span>
       </div>
     </ion-button>
