@@ -6,7 +6,7 @@ import { IonicModule } from '@ionic/angular';
   selector: 'app-telecamere',
   templateUrl: './telecamere.component.html',
   styleUrls: ['./telecamere.component.scss'],
-  imports: [IonicModule,RouterLink,RouterLinkActive]
+  imports: [IonicModule,RouterLink]
 })
 export class TelecamereComponent  implements OnInit {
 

@@ -9,7 +9,7 @@ import { AllarmeComponent } from 'src/app/shared/allarme/allarme.component';
   selector: 'app-allarmi',
   templateUrl: './allarmi.component.html',
   styleUrls: ['./allarmi.component.scss'],
-  imports: [IonicModule, RouterLink, RouterLinkActive,AllarmeComponent,CommonModule,FormsModule]
+  imports: [IonicModule, RouterLink,AllarmeComponent,CommonModule,FormsModule]
 })
 export class AllarmiComponent  implements OnInit {
   delay: number = 0;

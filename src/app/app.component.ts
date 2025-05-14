@@ -8,7 +8,7 @@ import { WebsocketService } from './services/websocket.service';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
-  imports: [IonApp, IonRouterOutlet,RouterOutlet,CommonModule],
+  imports: [IonApp, IonRouterOutlet,CommonModule],
 })
 export class AppComponent {
   constructor(private wsService: WebsocketService, private router: Router) {

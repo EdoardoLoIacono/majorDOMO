@@ -7,7 +7,7 @@ import { PulsanteVirtualeComponent } from 'src/app/components/pulsante-virtuale/
   selector: 'app-pulsanti-virtuali',
   templateUrl: './pulsanti-virtuali.component.html',
   styleUrls: ['./pulsanti-virtuali.component.scss'],
-  imports: [IonicModule,RouterLink,RouterLinkActive,PulsanteVirtualeComponent]
+  imports: [IonicModule,RouterLink,PulsanteVirtualeComponent]
 })
 export class PulsantiVirtualiComponent  implements OnInit {
 

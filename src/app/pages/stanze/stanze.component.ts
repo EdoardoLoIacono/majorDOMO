@@ -8,7 +8,7 @@ import { StanzeService } from 'src/app/services/stanze.service';
 @Component({
   selector: 'app-stanze',
   templateUrl: './stanze.component.html',
-  imports: [IonicModule,RouterLink,RouterLinkActive,StanzaComponent],
+  imports: [IonicModule,RouterLink,StanzaComponent],
   styleUrls: ['./stanze.component.scss'],
 })
 export class StanzeComponent  implements OnInit {

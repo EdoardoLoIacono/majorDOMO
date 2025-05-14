@@ -13,7 +13,7 @@ import { WebsocketService } from 'src/app/services/websocket.service';
   templateUrl: './impostazioni.page.html',
   styleUrls: ['./impostazioni.page.scss'],
   standalone: true,
-  imports: [FormsModule,IonicModule,NavigationComponent,MorphBackgroundComponent,RouterLink,RouterLinkActive]
+  imports: [FormsModule,IonicModule,NavigationComponent,MorphBackgroundComponent,RouterLink]
 })
 export class ImpostazioniPage implements OnInit {
 

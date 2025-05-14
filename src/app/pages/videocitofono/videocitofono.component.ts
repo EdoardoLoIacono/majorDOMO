@@ -6,7 +6,7 @@ import { IonicModule } from '@ionic/angular';
   selector: 'app-videocitofono',
   templateUrl: './videocitofono.component.html',
   styleUrls: ['./videocitofono.component.scss'],
-  imports: [IonicModule,RouterLink,RouterLinkActive]
+  imports: [IonicModule,RouterLink]
 })
 export class VideocitofonoComponent  implements OnInit {
 

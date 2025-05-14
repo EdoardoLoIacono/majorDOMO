@@ -6,7 +6,7 @@ import { ClimaPulsanteComponent } from 'src/app/components/clima-pulsante/clima-
 @Component({
   selector: 'app-clima',
   templateUrl: './clima.component.html',
-  imports: [IonicModule,RouterLink,RouterLinkActive,ClimaPulsanteComponent],
+  imports: [IonicModule,RouterLink,ClimaPulsanteComponent],
   styleUrls: ['./clima.component.scss'],
 })
 export class ClimaComponent  implements OnInit {
