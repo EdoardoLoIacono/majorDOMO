@@ -29,8 +29,6 @@ export class WebsocketService {
 
     this.ws.onclose = (event: CloseEvent) => {
       console.log('Websocket disconnesso');
-      this.init();
-      console.log('Riconnessione in corso...');
     };
   }
 
