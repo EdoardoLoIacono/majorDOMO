@@ -1,41 +1,48 @@
 .ingresso-card {
-    padding: 20px;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    --background: white
-  }
-  .content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 10px 0;
-  }
-  .percentage {
-    font-size: 20px;
-    font-weight: bold;
-  }
-  .slider-container {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 10px;
-  }
-  h2{
-    color: black;
-    margin: 0;
-    margin-right: 20px;
-  }
-  .custom-range {
-    flex: 1;
-  }
+  padding: 20px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  --background: white;
+  box-shadow: none;
+  --box-shadow: none; 
+}
 
-  ion-icon {
-    font-size: 24px; 
-    width: 24px;
-    height: 24px;
-    margin-left: -4px;
-  }
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.percentage {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.slider-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+h2 {
+  color: black;
+  margin: 0;
+  margin-right: 20px;
+}
+
+.custom-range {
+  flex: 1;
+}
+
+ion-icon {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+  margin-left: -4px;
+}

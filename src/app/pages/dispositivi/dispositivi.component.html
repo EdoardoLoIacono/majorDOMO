@@ -10,36 +10,38 @@
     </ion-toolbar>
   </div>
 
-  <div id="navigation">
-    <ion-segment value="tutto" color="dark" animation="no-animation" (ionChange)="filtraDispositivi($event)">
-      <ion-segment-button value="tutto">
-        <ion-label color="light">Tutto</ion-label>
-      </ion-segment-button>
-      <ion-segment-button value="luci">
-        <ion-label color="light">Luci</ion-label>
-      </ion-segment-button>
-      <ion-segment-button value="tapparelle">
-        <ion-label color="light">Tapparelle</ion-label>
-      </ion-segment-button>
-      <ion-segment-button value="preferiti">
-        <ion-label><ion-icon name="star" color="warning"></ion-icon></ion-label>
-      </ion-segment-button>
-    </ion-segment>
-  </div>
+<div id="navigation" class="scrollable-segment">
+  <ion-segment value="tutto" color="dark" animation="no-animation" (ionChange)="filtraDispositivi($event)">
+    <ion-segment-button value="tutto">
+      <ion-label color="light">Tutto</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="luci">
+      <ion-label color="light">Luci</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="tapparelle">
+      <ion-label color="light">Tapparelle</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="preferiti">
+      <ion-label><ion-icon name="star" color="warning"></ion-icon></ion-label>
+    </ion-segment-button>
+  </ion-segment>
+</div>
 
 
   @for(room of this.rooms | keyvalue ;track room.key){
-    <label for="" style="color: black;">
-      STANZA: {{room.key}}
-      @for(device of this.rooms[room.key + ""]; track $index) {
-        @if(device.tipo === 0) {
-          <app-luce [nome]="device.nome" [stato]="device.stato" [favourite]="device.favourite"></app-luce>
-        }
-        @if(device.tipo === 1 || device.tipo === 2) {
-            <app-tapparella [nome]="device.nome" [stato]="device.stato" [favourite]="device.favourite"></app-tapparella>
+    @if(this.rooms[room.key+""]?.length > 0){
+      <div class="room-header">
+        <span>{{ room.key }}</span>
+      </div>
+        @for(device of this.rooms[room.key + ""]; track $index) {
+          @if(device.tipo === 0) {
+            <app-luce [nome]="device.nome" [stato]="device.stato" [favourite]="device.favourite"></app-luce>
           }
-        }
-    </label>
+          @if(device.tipo === 1 || device.tipo === 2) {
+              <app-tapparella [nome]="device.nome" [stato]="device.stato" [favourite]="device.favourite"></app-tapparella>
+            }
+          }
+    }
   }
 
 

@@ -69,7 +69,7 @@ export class LoginComponent implements OnInit {
 
           const config = {
             fps: 15,
-            qrbox: { width: 250, height: 250 },
+            qrbox: { width: 250, height: 250 }, 
             aspectRatio: 1.0,
             disableFlip: false,
             videoConstraints: {
